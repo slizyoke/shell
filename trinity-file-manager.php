@@ -20,7 +20,7 @@ function pryapyba_43e27569() {
 ?>
 <html>
   <head>
-    <title>ARON-TN
+    <title>Trinity
     </title>
     <style type="text/css">
       html {
